@@ -1,0 +1,20 @@
+|-- .gitignore
+|-- README.md
+|-- data
+    |-- processed
+    |-- raw
+|-- estructura.txt
+|-- notebooks
+    |-- Untitled.ipynb
+|-- reports
+    |-- figures
+|-- requirements.txt
+|-- src
+    |-- data
+    |-- evaluation
+    |-- models
+    |-- utils
+    |-- visualization
+|-- tests
+|-- utils
+    |-- estructura.py
