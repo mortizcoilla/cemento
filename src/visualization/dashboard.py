@@ -4,7 +4,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Configuración de Streamlit
-st.set_page_config(page_title="Dashboard de Predicción de Concreto", layout="wide")
+st.set_page_config(
+    page_title="Dashboard de Predicción de Concreto",
+    layout="wide",
+    initial_sidebar_state="collapsed"  # Opciones: "expanded", "collapsed"
+)
 
 # Paleta de colores
 DARK_BLUE = "#072D44"
@@ -31,59 +35,36 @@ st.markdown(f"""
             font-size: 20px;
             margin-bottom: 10px;
         }}
-        .metric-box {{
-            background-color: {LIGHT_BLUE};
-            border-radius: 10px;
-            padding: 10px;
-            color: {WHITE};
-            text-align: center;
-        }}
         .contact {{
             text-align: center;
             margin-top: 20px;
-        }}
-        .contact img {{
-            width: 30px;
-            margin: 5px;
         }}
         .contact a {{
             text-decoration: none;
             color: {MEDIUM_BLUE};
             font-weight: bold;
+            font-size: 16px;
+            margin: 5px;
+            display: block;
         }}
-        .spacer {{
-            margin-bottom: 30px;
+        .contact a:hover {{
+            color: {LIGHT_BLUE};
         }}
     </style>
 """, unsafe_allow_html=True)
-
-# Ruta relativa para los íconos
-ICON_PATH = "src/assets/"
 
 # Título principal
 st.markdown("<h1 class='main-title'>Dashboard de Predicción de Resistencia del Concreto</h1>", unsafe_allow_html=True)
 
 # Barra lateral: Información y contacto
-
-icon_path_github = os.path.abspath("src/assets/github.png")
-icon_path_linkedin = os.path.abspath("src/assets/linkedin.png")
-icon_path_whatsapp = os.path.abspath("src/assets/whatsapp.png")
-
 st.sidebar.title("Configuración")
 st.sidebar.markdown("Ajusta los parámetros del modelo y explora los datos.")
 st.sidebar.markdown("<hr>", unsafe_allow_html=True)
 st.sidebar.markdown("### by Miguel Ortiz C.")
 st.sidebar.markdown(f"""
 <div class="contact">
-    <a href="https://linkedin.com/in/tu-linkedin" target="_blank">
-        <img src="file://{icon_path_linkedin}" alt="LinkedIn" style="width: 30px; margin: 5px;">
-    </a>
-    <a href="https://github.com/tu-github" target="_blank">
-        <img src="file://{icon_path_github}" alt="GitHub" style="width: 30px; margin: 5px;">
-    </a>
-    <a href="https://wa.me/56933293943?text=Hola%20Miguel" target="_blank">
-        <img src="file://{icon_path_whatsapp}" alt="WhatsApp" style="width: 30px; margin: 5px;">
-    </a>
+    <a href="https://www.linkedin.com/in/mortizcoilla/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/mortizcoilla" target="_blank">GitHub</a>
 </div>
 """, unsafe_allow_html=True)
 
@@ -156,10 +137,4 @@ with col2:
 st.markdown("<h2 class='section-title'>Datos del Concreto</h2>", unsafe_allow_html=True)
 with st.expander("Mostrar/Ocultar tabla de datos"):
     st.dataframe(data)
-    csv = data.to_csv(index=False)
-    st.download_button(
-        label="Descargar datos como CSV",
-        data=csv,
-        file_name="concrete_data.csv",
-        mime="text/csv",
-    )
+  
