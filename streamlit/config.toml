@@ -1,0 +1,7 @@
+[theme]
+base = "light"  # Cambia "light" a "dark" para tema oscuro
+primaryColor = "#064469"  # Azul medio
+backgroundColor = "#ffffff"  # Blanco
+secondaryBackgroundColor = "#f5f5f5"  # Gris claro
+textColor = "#000000"  # Negro
+font = "sans serif"  # Opciones: "sans serif", "serif", "monospace"
